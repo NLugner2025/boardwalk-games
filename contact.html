@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            var name = document.forms["contactForm"]["name"].value;
+            var email = document.forms["contactForm"]["email"].value;
+            var message = document.forms["contactForm"]["message"].value;
+            if (name == "" || email == "" || message == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
-    
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Contact Me</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="main">
+        <div class="container">
+            <h2>Contact Form</h2>
+            <form name="contactForm" onsubmit="return validateForm()" method="post" action="submit_form.php">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>My Website &copy; Nils Lugner2025</p>
+    </footer>
 </body>
 </html>
