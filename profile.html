@@ -1,0 +1,43 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card {
+      margin: auto;
+      width: 50%;
+      text-align: center;
+    }
+    .card img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-body">
+      <img src="https://via.placeholder.com/150" alt="Profile Photo" id="profilePhoto">
+      <h5 class="card-title">John Doe</h5>
+      <p class="card-text">Web Developer</p>
+      <input type="file" id="photoUpload" class="form-control-file">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('photoUpload').addEventListener('change', function(event) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const img = document.getElementById('profilePhoto');
+        img.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    });
+  </script>
+</body>
+</html>
